@@ -1,0 +1,54 @@
+* {
+    /* background-color: black;   */
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.play {
+    max-height: 600px;
+     background-color: white;
+    opacity: 90%; 
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+
+    background: linear-gradient(to top, rgba(30, 35, 38, 0.5), rgba(30, 35, 38, 0.3)), url(https://i.ibb.co/ymPMZNQ6/play-bg.jpg); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding-top: 100px;
+    height: 75vh; 
+} 
+
+
+.first-row > .item-cell,.second-row > .item-cell{
+    padding: 10px;
+    border-bottom: 4px solid rgb(99, 88, 88);
+    opacity: 0.6;
+    background-color: antiquewhite;
+    width: 120px;
+    height: 120px;
+}
+
+.third-row > .item-cell{
+ 
+    background-color: antiquewhite ;
+    opacity: 0.6;
+    width: 120px;
+    height: 120px;
+}
+
+.item-cel{
+   
+    background-color: darkgray;
+}
+
+.first-col, .second-col{
+    border-right: 4px solid rgb(99, 88, 88);
+}
