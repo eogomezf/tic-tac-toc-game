@@ -45,3 +45,14 @@ a {
 .first-col, .second-col{
     border-right: 4px solid  rgb(31, 29, 29);
 }
+
+
+
+/* #cell1{
+    cursor: not-allowed;
+} */
+
+
+#cancel{
+    display: none;
+}
