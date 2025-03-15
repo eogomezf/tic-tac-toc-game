@@ -16,39 +16,32 @@ a {
     margin: 1rem;
     margin-left: 0;
     border-radius: 2rem;
-    padding: 3rem;
+    padding: 2rem;
 
     background: linear-gradient(to top, rgba(30, 35, 38, 0.5), rgba(30, 35, 38, 0.3)), url(https://i.ibb.co/ymPMZNQ6/play-bg.jpg); 
     background-size: cover;
     background-position: center;
     color: white;
-    padding-top: 100px;
+ 
     height: 75vh; 
 } 
 
 
 .first-row > .item-cell,.second-row > .item-cell{
     padding: 10px;
-    border-bottom: 4px solid rgb(99, 88, 88);
-    opacity: 0.6;
-    background-color: antiquewhite;
+    border-bottom: 4px solid rgb(31, 29, 29);
+  cursor: pointer;
     width: 120px;
     height: 120px;
 }
 
 .third-row > .item-cell{
- 
-    background-color: antiquewhite ;
-    opacity: 0.6;
     width: 120px;
     height: 120px;
+    cursor: pointer;
 }
 
-.item-cel{
-   
-    background-color: darkgray;
-}
 
 .first-col, .second-col{
-    border-right: 4px solid rgb(99, 88, 88);
+    border-right: 4px solid  rgb(31, 29, 29);
 }
