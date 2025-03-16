@@ -48,9 +48,9 @@ a {
 
 
 
-/* #cell1{
+.play-section > .row{
     cursor: not-allowed;
-} */
+}
 
 
 #cancel{
