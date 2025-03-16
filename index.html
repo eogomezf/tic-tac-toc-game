@@ -7,12 +7,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+ 
     <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe</title>
   </head>
@@ -24,19 +22,18 @@
         <div class="score-section">
             <div class="row text-center">
                 <div id ="player-score" class="col-6 d-flex justify-content-center">
-                    <div class="player"><img src="img/buttonX.png" width="50" alt="X"></div>
-                    <div class="data-player">
-                          <h3 class="score-title">Player 1</h3>
-                          <p id ="player-score-show" class="score" >00</p>
-                    </div>
                   
+                    <div id ="player1-score" class="data-player">
+                          <h3 class="score-title">Player 1</h3>
+                          <p id ="player1-score-show" class="score" >00</p>
+                    </div>
+                    <div class="player"><img src="https://i.ibb.co/mVBFN0Fn/buttonX.png" width="50" alt="X"></div>
                 </div>
-         
                 <div id ="bot-score" class="col-6 d-flex justify-content-center">
-                    <div class="player"><img src="img/buttonO.png" width="50" alt="X"></div>
-                    <div class="data-player">
+                    <div class="player"><img src="https://i.ibb.co/pj7CVwYj/buttonO.png" width="50" alt="X"></div>
+                    <div id ="player2-score" class="data-player">
                         <h3 class="score-title">Player 2</h3>
-                        <p id ="bot-score-show" class="score">00</p>
+                        <p id ="player2-score-show" class="score">00</p>
                     </div>
                     
                 </div>
@@ -79,7 +76,7 @@
                 Cancel Game
             </button>
         
-            <a class="exit" href="index.html"><i class="bi bi-escape"></i></a>
+            <a class="exit" href="index.html"><i class="bi bi-escape"></i> Reset Game </a>
       
         </footer>
        

@@ -4,7 +4,10 @@ let player2Turn = false;
 let started = false
 let selectedPlayer1 = [];
 let selectedPlayer2 = [];
+let moveMade = 0;
 
+let scorePlayer1 = 0;
+let scorePlayer2 = 0;
 
 const allSolutions = [
 	['1', '2', '3'],
@@ -97,7 +100,7 @@ cell9.addEventListener('click', chooseCell);
 
 
 function chooseCell(event){
-
+    
     let valMatrix = event.target.id.split('')[4]
     let value = event.target.getAttribute('valueCell')
 
@@ -106,30 +109,66 @@ function chooseCell(event){
         if(player1Turn){
             turn = "X";
             selectedPlayer1.push(valMatrix);
+            changeMessage('0 turn, please choose cell')
         }else{
             turn = "0";
             selectedPlayer2.push(valMatrix);
+            changeMessage('X turn, please choose cell')
         }
         let newValue = event.target.setAttribute('valueCell','1');
      
         //insert option
         insertImg(event.target.id, turn);
 
+        moveMade++
+        console.log(moveMade)
+
         //change message
-        changeMessage(turn)
+        //changeMessage(turn)
 
         //validate win options
-        if(selectedPlayer1.length >=3 ) {
+        if(selectedPlayer1.length >=3 && turn === "X") {
             console.log(selectedPlayer1)
-    console.log(turn)
+            console.log(turn)
+            const result = validateWin(selectedPlayer1, turn)
 
-         console.log(  validateWin(selectedPlayer1, turn))
+         if(result){
+            console.log("Player 1 wins")
+            changeMessage('Player 1 wins')
+            scorePlayer1++
+            started = false
+            moveMade = 0
+            showScore('player1-score', 'player1-score-show', scorePlayer1);
+         }else if(moveMade > 8 ){
+            console.log("draw")
+            changeMessage('draw')
+            started = false
+            moveMade = 0
         }
-        if(selectedPlayer2.length >=3 ) {
-            console.log(selectedPlayer2)
-    console.log(turn)
 
-            console.log(   validateWin(selectedPlayer2, turn))
+        }
+        
+        if(selectedPlayer2.length >=3  && turn === "0") {
+            console.log(selectedPlayer2)
+            console.log(turn)
+            const result = validateWin(selectedPlayer2, turn)
+            if(result){
+                console.log("Player 2 wins")
+                changeMessage('Player 2 wins')
+                started = false
+                scorePlayer2++
+                moveMade = 0
+                showScore('player2-score', 'player2-score-show', scorePlayer2);
+             }else{
+
+                if(moveMade > 8 ){
+                    console.log("draw")
+                    changeMessage('draw')
+                    started = false
+                    moveMade = 0
+                }
+                
+             }
         }
         
     }
@@ -145,14 +184,15 @@ function insertImg(idParent, turn){
         player2Turn = false;
         player1Turn = true
     }
+ 
 
-    const urlImg = turn === "X" ? 'img/X.png' :'img/0.png';
+    const urlImg = turn === "X" ? 'https://i.ibb.co/Fb38TtKF/x.png' :'https://i.ibb.co/fdtXdBL7/image.png';
     document.getElementById(idParent).insertAdjacentHTML('beforeend', `<img id="img-${idParent}" width="100" src=${urlImg} alt="computer-choice">`);
 }
 
-function changeMessage(turn){
+function changeMessage(message){
 
-    const message = turn === "X" ? '0 turn, please choose cell' :'X turn, please choose cell';
+   // const message = turn === "X" ? '0 turn, please choose cell' :'X turn, please choose cell';
     //const message = 'X turn, please choose cell'
     let idMes = 'result';
     let eliminate = document.getElementById(idMes);
@@ -175,7 +215,7 @@ function validateWin(selectedPlayer,turn){
    // console.log(allSolutions)
     console.log(selectedPlayer)
     console.log(turn)
-    let solution
+    let solution = false
     for(let i = 0; i< allSolutions.length; i++){
         console.log(allSolutions[i])
         solution = allSolutions[i].every(el => selectedPlayer.includes(el))
@@ -198,4 +238,10 @@ function validateWin(selectedPlayer,turn){
     }
 
     return solution;
+}
+
+function showScore(idParent, idMes, score){
+    let eliminate = document.getElementById(idMes);
+    eliminate.parentNode.removeChild(eliminate);
+    document.getElementById(idParent).insertAdjacentHTML('beforeend', `<p id=${idMes}  class="score" >${score} </p>`);
 }
